@@ -1,28 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const todoList = document.getElementById('todo-list');
+$(document).ready(() => {
+    const $todoList = $("#todo-list");
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
 
-    function renderTodos() {
-        todoList.innerHTML = '';
-        todos.forEach((todo, index) => {
-            const li = document.createElement('li');
-            li.textContent = todo.text;
+    const renderTodos = () => {
+        $todoList.empty();
+        $.each(todos, (index, todo) => {
+            const $li = $('<li>').text(todo.text);
 
-            const editButton = document.createElement('button');
-            editButton.textContent = '編集';
-            editButton.onclick = () => location.href = `edit.html?index=${index}`;
-            li.appendChild(editButton);
+            const $editButton = $('<button>').text('編集');
+            $editButton.on('click', () => location.href = `edit.html?index=${index}`);
+            $li.append($editButton);
 
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = '削除';
-            deleteButton.onclick = () => {
+            const $deleteButton = $('<button>').text('削除');
+            $deleteButton.on('click', () => {
                 todos.splice(index, 1);
                 localStorage.setItem('todos', JSON.stringify(todos));
                 renderTodos();
-            };
-            li.appendChild(deleteButton);
+            });
+            $li.append($deleteButton);
 
-            todoList.appendChild(li);
+            $todoList.append($li);
         });
     }
 
