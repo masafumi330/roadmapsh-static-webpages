@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const todoForm = document.getElementById('todo-form');
-    const todoText = document.getElementById('todo-text');
+$(document).ready(() => {
+    const $todoForm = $('#todo-form');
+    const $todoText = $('#todo-text');
     const urlParams = new URLSearchParams(window.location.search);
     const index = urlParams.get('index');
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
 
     if (index !== null) {
-        todoText.value = todos[index].text;
+        $todoText.val(todos[index].text);
     }
 
-    todoForm.onsubmit = function(e) {
+    $todoForm.submit((e) => {
         e.preventDefault();
-        const text = todoText.value.trim();
+        const text = $todoText.val().trim();
 
         if (text) {
             if (index !== null) {
@@ -22,5 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('todos', JSON.stringify(todos));
             location.href = 'index.html';
         }
-    };
+    }
+    );
 });
