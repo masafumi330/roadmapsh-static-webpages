@@ -2,13 +2,39 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
 }
+
+.container {
+    max-width: 720px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
 h1 {
     font-size: 24px;
+    text-align: center;
 }
+
 button {
-    margin-bottom: 20px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-width: 0;
 }
+button:hover {
+    background-color: whitesmoke;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -20,4 +46,21 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+@media (max-width: 720px) {
+    .container {
+        margin: 0 20px;
+    }
 }
