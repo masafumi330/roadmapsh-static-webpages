@@ -1,4 +1,4 @@
-var MicroModal = require('micromodal');
+import MicroModal from 'micromodal';
 
 $(document).ready(() => {
     const $todoList = $("#todo-list");

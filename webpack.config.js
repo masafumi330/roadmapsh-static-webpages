@@ -5,7 +5,7 @@ module.exports = {
         filename: 'main.js',
         publicPath: 'dist'
     },
-    moduel: {
+    module: {
         rules: [
             {
                 test: /\.js$/,
