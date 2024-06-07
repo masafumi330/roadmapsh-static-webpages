@@ -1,5 +1,15 @@
-import MicroModal from 'micromodal';
+import dayjs from 'dayjs' // ES 2015
+dayjs().format()
 
+
+const updateClock = () => {
+    var now = dayjs();
+    console.log(now.format('YYYY/MM/DD HH:mm:ss')); // 2020/01/01 12:34:56
+    $('#clock').text(now.format('YYYY/MM/DD HH:mm:ss'));
+};
+// 1秒ごとにupdateClock関数を実行
+setInterval(updateClock, 1000);
+updateClock();
 
 $(document).ready(() => {
     const $todoList = $("#todo-list");

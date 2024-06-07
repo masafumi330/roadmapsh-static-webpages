@@ -18,6 +18,10 @@ body {
     box-sizing: border-box;
 }
 
+#clock {
+    text-align: center;
+}
+
 h1 {
     font-size: 24px;
     text-align: center;
