@@ -1,3 +1,5 @@
+var MicroModal = require('micromodal');
+
 $(document).ready(() => {
     const $todoList = $("#todo-list");
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
